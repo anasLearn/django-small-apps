@@ -23,5 +23,8 @@ from boards import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog_dg/', include('blog_dg.urls')),
+
+    
     url(r'^$', views.home, name='home'),
+    url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
 ]
