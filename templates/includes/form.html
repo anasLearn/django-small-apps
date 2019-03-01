@@ -1,0 +1,38 @@
+{% load widget_tweaks %}
+
+{% for field in form %}
+    <div class="form-group">
+        {{ field.label_tag }}
+
+
+        <!-- Possibilities of render_field -->
+        <!-- 
+        {% render_field field class="form-control" %}
+        {% render_field form.message class="form-control" placeholder=form.message.label %}
+        {% render_field field class="form-control" placeholder="Write a message!" %}
+        {% render_field field style="font-size: 20px" %} 
+        -->
+
+
+        {% if form.is_bound %}
+            {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {% render_field field class="form-control is-valid" %}
+            {% endif %}
+        {% else %}
+            {% render_field field class="form-control" %}
+        {% endif %}
+
+        {% if field.help_text %}
+            <small class="form-text text-muted">
+                {{ field.help_text }}
+            </small>
+        {% endif %}
+    </div>
+{% endfor %}
