@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'blog_dg',
     'boards',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,9 @@ STATICFILES_DIRS = [
 # +MEDIA_URL = '/media/'
 # +STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # +MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home' #wHERE to direct the user after succesful login (to the url name 'home')
+
